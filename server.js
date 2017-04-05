@@ -3,7 +3,7 @@ var useragent = require("useragent");
 var app = express();
 
 app.get("/", function (req, res) {
-    var agent = useragent.parse(req.headers['user-agent']).os.toString();
+    var agent = useragent.parse(req.headers['user-agent']);
     res.json({ ip: req.ip, language: req.acceptsLanguages()[0], software: agent.os.toString()});
 });
 
